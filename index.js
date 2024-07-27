@@ -1,8 +1,13 @@
 import express from "express";
-
+import bodyParser from "body-parser";
 const app = express();
+app.use(bodyParser.json());
+
 app.get("/", (req, res) => {
-  res.send("Hello");
+  res.json([
+    { id: 1, name: "Monday" },
+    { id: 2, name: "Tuesday" },
+  ]);
 });
 
 app.listen(5000, () => {
