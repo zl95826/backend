@@ -19,6 +19,14 @@ app.get("/", (req, res) => {
   ]);
 });
 
+app.get("/data", (req, res) => {
+  fetch("https://jsonplaceholder.typicode.com/users")
+    .then((response) => response.json())
+    .then((val) => {
+      res.json(val);
+    });
+});
+
 app.listen(5000, () => {
   console.log("My server is working.");
 });
